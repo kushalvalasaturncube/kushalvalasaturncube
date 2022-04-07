@@ -1,6 +1,6 @@
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import logo from 'assets/images/BOM_NFT.png';
+import logo from 'assets/images/BOM_short.png';
 
 /**
  * if you want to use image instead of <svg> uncomment following.
@@ -25,7 +25,8 @@ const Logo = () => {
     <img
       src={theme.palette.mode === 'dark' ? logo : logo}
       alt='Berry'
-      width='50'
+      width='60'
+      height='45'
     />
 
     // <svg width="92" height="32" viewBox="0 0 92 32" fill="none" xmlns="http://www.w3.org/2000/svg">

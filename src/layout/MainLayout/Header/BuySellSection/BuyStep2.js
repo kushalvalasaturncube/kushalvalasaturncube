@@ -13,7 +13,7 @@ import {
   ListItemAvatar,
   ListItemText,
 } from '@mui/material';
-import Avatar3 from 'assets/images/users/avatar-3.png';
+import bom_token from 'assets/images/BOM_short.png';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 import MuiTypography from '@mui/material/Typography';
@@ -77,7 +77,12 @@ export default function BuyStep2(props) {
           >
             <Grid container sm={10} justifyContent='center' sx={{ ml: 2 }}>
               <Grid sx={{ align: 'center', justifyContent: 'center' }}>
-                <Avatar alt='User 1' src={Avatar3} align='center' />
+                <Avatar
+                  alt='User 1'
+                  src={bom_token}
+                  align='center'
+                  sx={{ p: 0.6, backgroundColor: 'gainsboro' }}
+                />
               </Grid>
               <Grid sx={{ ml: 2, cursor: 'pointer' }}>
                 <Typography align='center' variant='subtitle1'>
@@ -127,9 +132,7 @@ export default function BuyStep2(props) {
           >
             <AnimateButton>
               <Button
-                // disableElevation
                 variant='contained'
-                // color='secondary'
                 type='submit'
                 sx={{
                   width: { xs: '100%', md: 'fit-content' },

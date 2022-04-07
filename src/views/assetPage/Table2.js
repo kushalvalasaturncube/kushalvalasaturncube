@@ -14,15 +14,27 @@ import {
   useMediaQuery,
   tableCellClasses,
   Typography,
+  IconButton,
+  Stack,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { IconSearch } from "@tabler/icons";
 import { styled } from "@mui/material/styles";
+import Checkbox from "@mui/material/Checkbox";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import StarIcon from "@mui/icons-material/Star";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 // project imports
 
 import MainCard from "ui-component/cards/MainCard";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { gridSpacing } from "store/constant";
+import img6 from "../../assets/images/unnamed.png";
+import img2 from "../../assets/images/logo-bitcoin-4096.png";
+import img4 from "../../assets/images/tether-logo-png-transparent.png";
+import img7 from "../../assets/images/solana.webp";
+import Image from "mui-image";
 
 // table data
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -36,25 +48,120 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
+  // "&:nth-of-type(odd)": {
+  //   backgroundColor: theme.palette.action.hover,
+  // },
   // hide last border
   "&:last-of-type td, &:last-of-type th": {
     border: 0,
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, calories, fat, carbs, protein, icon) {
+  return { name, calories, fat, carbs, protein, icon };
 }
 
-const rows = [
-  createData("BOM Token", 159, 6.0, 5, <RemoveRedEyeIcon />),
-  createData("BOM", 237, 9.0),
+const successSX = { color: "success.dark" };
+const errorSX = { color: "error.main" };
 
-  createData("Bitcoin", 356, 16.0),
-  createData("BTC", 356, 16.0),
+const rows = [
+  createData(
+    <Stack direction="row">
+      <Image src={img7} height="30px" width="30px" />
+      <Typography marginTop="5px" marginLeft={2}>
+        Solana
+      </Typography>
+    </Stack>,
+    159,
+    <>
+      <Typography>$789</Typography>
+      <Stack direction="row" justifyContent="end">
+        <ArrowDropUpIcon color={"success"} />
+        <Typography sx={successSX}> +78.631</Typography>{" "}
+      </Stack>
+    </>,
+    "$5B",
+    <IconButton color="primary">
+      <RemoveRedEyeIcon />
+    </IconButton>,
+    <Checkbox
+      icon={<StarOutlineIcon />}
+      checkedIcon={<StarIcon color="primary" />}
+    />
+  ),
+  createData(
+    <Stack direction="row">
+      <Image src={img4} height="30px" width="30px" />
+      <Typography marginTop="5px" marginLeft={2}>
+        Tether
+      </Typography>
+    </Stack>,
+    237,
+    <>
+      <Typography>$89</Typography>
+      <Stack direction="row" justifyContent="end">
+        <ArrowDropDownIcon sx={errorSX} />
+        <Typography sx={errorSX}>- $5.631</Typography>
+      </Stack>
+    </>,
+    "$7B",
+    <IconButton color="primary">
+      <RemoveRedEyeIcon />
+    </IconButton>,
+    <Checkbox
+      icon={<StarOutlineIcon />}
+      checkedIcon={<StarIcon color="primary" />}
+    />
+  ),
+
+  createData(
+    <Stack direction="row">
+      <Image src={img2} height="30px" width="30px" />
+      <Typography marginTop="5px" marginLeft={2}>
+        Bitcoin
+      </Typography>
+    </Stack>,
+    356,
+    <>
+      <Typography>$9</Typography>
+      <Stack direction="row" justifyContent="end">
+        <ArrowDropUpIcon color={"success"} />
+        <Typography sx={successSX}> +5.631</Typography>
+      </Stack>
+    </>,
+    "$8B",
+    <IconButton color="primary">
+      <RemoveRedEyeIcon />
+    </IconButton>,
+    <Checkbox
+      icon={<StarOutlineIcon />}
+      checkedIcon={<StarIcon color="primary" />}
+    />
+  ),
+  createData(
+    <Stack direction="row">
+      <Image src={img6} height="30px" width="30px" />
+      <Typography marginTop="5px" marginLeft={2}>
+        BTC
+      </Typography>
+    </Stack>,
+    356,
+    <>
+      <Typography>$99</Typography>
+      <Stack direction="row" justifyContent="end">
+        <ArrowDropUpIcon color={"success"} />
+        <Typography sx={successSX}> $89.631</Typography>
+      </Stack>
+    </>,
+    "$9B",
+    <IconButton color="primary">
+      <RemoveRedEyeIcon />
+    </IconButton>,
+    <Checkbox
+      icon={<StarOutlineIcon />}
+      checkedIcon={<StarIcon color="primary" />}
+    />
+  ),
 ];
 
 const status = [
@@ -88,6 +195,11 @@ export default function Table2() {
     <Grid container spacing={gridSpacing} sx={{ paddingTop: "10px" }}>
       <Grid item xs={12}>
         <MainCard
+          sx={{
+            "&:hover": {
+              border: `1px solid${theme.palette.primary.main}`,
+            },
+          }}
           fontFamily="sans-serif"
           content={false}
           title={
@@ -172,6 +284,7 @@ export default function Table2() {
                   <StyledTableCell sx={{ pr: 3 }} align="right">
                     Action
                   </StyledTableCell>
+                  <StyledTableCell align="right">Watch</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -188,6 +301,7 @@ export default function Table2() {
                     <StyledTableCell sx={{ pr: 3 }} align="right">
                       {row.protein}
                     </StyledTableCell>
+                    <StyledTableCell align="right">{row.icon}</StyledTableCell>
                   </StyledTableRow>
                 ))}
               </TableBody>

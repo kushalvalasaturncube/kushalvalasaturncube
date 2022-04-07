@@ -7,19 +7,26 @@ import CardMedia from "@mui/material/CardMedia";
 import MainCard from "ui-component/cards/MainCard";
 import { gridSpacing } from "store/constant";
 import img1 from "../../assets/images/nft.jpg";
+import { useTheme } from "@mui/material/styles";
 
 // ==============================|| USER CARD STYLE 1 ||============================== //
 
 const CardStyle1 = () => {
+  const theme = useTheme();
   return (
     <>
       <MainCard
+        sx={{
+          "&:hover": {
+            border: `1px solid${theme.palette.primary.main}`,
+          },
+        }}
         title={
           <Grid
             container
             alignItems="center"
-            justifyContent="space-between"
-            spacing={gridSpacing}
+            justifyContent="unset"
+            spacing={0}
           >
             <Grid item>
               <Typography variant="h3">Breaking News 1</Typography>
@@ -33,8 +40,10 @@ const CardStyle1 = () => {
             height="150"
             image={img1}
             alt="Paella dish"
-            style={{ paddingBottom: "24px" }}
+            style={{ borderRadius: "10px " }}
           />
+        </Grid>
+        <Grid item style={{ marginTop: "12px" }}>
           <Typography variant="p">
             NFTs are currently taking the digital art and collectibles world by
             storm. Digital artists are seeing their lives change thanks to huge
@@ -46,7 +55,12 @@ const CardStyle1 = () => {
       </MainCard>
 
       <MainCard
-        sx={{ marginTop: "10px" }}
+        sx={{
+          marginTop: "10px",
+          "&:hover": {
+            border: `1px solid${theme.palette.primary.main}`,
+          },
+        }}
         title={
           <Grid
             container
@@ -66,8 +80,10 @@ const CardStyle1 = () => {
             height="150"
             image={img1}
             alt="Paella dish"
-            style={{ paddingBottom: "24px" }}
+            style={{ borderRadius: "10px " }}
           />
+        </Grid>
+        <Grid item style={{ marginTop: "12px" }}>
           <Typography variant="p">
             NFTs are tokens that we can use to represent ownership of unique
             items. They let us tokenise things like art, collectibles, even real

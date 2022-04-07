@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid, Avatar, Typography, Divider, Link } from '@mui/material';
-import Avatar3 from 'assets/images/users/avatar-3.png';
+import bom_token from 'assets/images/BOM_short.png';
+import bom_nft from 'assets/images/BOM_NFT.png';
+
 export default function BuyStep1(props) {
   return (
     <Grid
@@ -19,7 +21,11 @@ export default function BuyStep1(props) {
         sx={{ my: 2, cursor: 'pointer', textDecoration: 'none' }}
       >
         <Grid item>
-          <Avatar alt='User 1' src={Avatar3} />
+          <Avatar
+            alt='User 1'
+            src={bom_token}
+            sx={{ p: 0.6, backgroundColor: 'gainsboro' }}
+          />
         </Grid>
         <Grid item xs zeroMinWidth sx={{ ml: 2 }}>
           <Typography align='left' variant='subtitle1'>
@@ -39,7 +45,11 @@ export default function BuyStep1(props) {
         sx={{ my: 2, cursor: 'pointer', textDecoration: 'none' }}
       >
         <Grid item>
-          <Avatar alt='User 1' src={Avatar3} />
+          <Avatar
+            alt='User 1'
+            src={bom_nft}
+            sx={{ p: 0.6, backgroundColor: 'gainsboro' }}
+          />
         </Grid>
         <Grid item xs zeroMinWidth sx={{ ml: 2 }}>
           <Typography align='left' variant='subtitle1'>

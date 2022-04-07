@@ -2,15 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-  Box,
-  Button,
-  CardActions,
-  CardContent,
-  Divider,
-  Grid,
-  Modal,
-} from '@mui/material';
+import { Box, Button, CardContent, Divider, Grid, Modal } from '@mui/material';
 import MainCard from 'ui-component/cards/MainCard';
 import DetailSection from './DetailSection';
 
@@ -29,8 +21,8 @@ const Body = React.forwardRef(({ modalStyle, handleClose }, ref) => (
     >
       <CardContent
         sx={{
-          minHeight: '350px',
-          maxHeight: '450px',
+          minHeight: '550px',
+          maxHeight: '550px',
           overflow: 'auto',
           width: '100%',
         }}
@@ -41,26 +33,8 @@ const Body = React.forwardRef(({ modalStyle, handleClose }, ref) => (
         sx={{
           marginLeft: 3,
           marginRight: 3,
-          // marginL: 10,
         }}
       />
-      <CardActions
-        sx={{
-          float: 'right',
-        }}
-      >
-        <Button
-          // component={Link}
-          // href='https://material-ui.com/store/items/berry-react-material-admin/'
-          disableElevation
-          variant='contained'
-          color='secondary'
-          type='button'
-          onClick={handleClose}
-        >
-          Close
-        </Button>
-      </CardActions>
     </MainCard>
   </div>
 ));

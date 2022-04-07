@@ -7,7 +7,8 @@ import { gridSpacing } from 'store/constant';
 import SendIcon from '@mui/icons-material/Send';
 import SendSection from './SendSection';
 import ReceiveSection from './ReceiveSection';
-import CallReceivedIcon from '@mui/icons-material/CallReceived';
+import GetAppIcon from '@mui/icons-material/GetApp';
+import UploadIcon from '@mui/icons-material/Upload';
 function TabPanel({ children, value, index, ...other }) {
   return (
     <div
@@ -84,18 +85,18 @@ export default function DetailSection() {
                   marginBottom: '0px !important',
                   marginRight: 1.25,
                 },
-                mb: 3,
+                mb: 2,
               }}
             >
               <Tab
-                icon={<SendIcon />}
+                icon={<UploadIcon />}
                 component={Link}
                 to='#'
                 label='Send'
                 {...a11yProps(0)}
               />
               <Tab
-                icon={<CallReceivedIcon />}
+                icon={<GetAppIcon />}
                 component={Link}
                 to='#'
                 label='Receive'

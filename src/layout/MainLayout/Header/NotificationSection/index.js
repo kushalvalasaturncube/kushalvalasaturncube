@@ -185,9 +185,11 @@ const NotificationSection = () => {
                             justifyContent='center'
                             sx={{ mb: 2, mx: 0, px: 0 }}
                           >
-                            <img src={QR} alt='ime' width={'225px'} />
+                            <Grid item sx={{ backgroundColor: '#fff', p: 1 }}>
+                              <img src={QR} alt='ime' width={'225px'} />
+                            </Grid>
                           </Grid>
-                          <Grid container spacing={2} sx={{ px: '35px' }}>
+                          <Grid container spacing={2} sx={{ px: '30px' }}>
                             <Grid item xs>
                               {/* <FormProvider> */}
                               <TextField
